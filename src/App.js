@@ -14,11 +14,11 @@ function App() {
     dataset: [1,2,3,4,5],
     type:"Bar chart"
   }
-  console.log(data.dataset)
+  console.log(data)
   return (
   <>
-    <div>
-   <ChartPage data={data}/>
+    <div className="max-w-2xl mx-auto mt-20">
+     <ChartPage data={data}/>
    
     </div>
   </>
