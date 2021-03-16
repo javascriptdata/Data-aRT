@@ -24,7 +24,7 @@ export default function Chart({dataset}) {
         'rgba(255, 159, 64, 1)'
       ],
       borderWidth: 1,
-      data: [65, 59, 80, 121, 180, 250, 400],
+      data: dataset.dataset,
     }]
   };
   let options = {
@@ -40,13 +40,9 @@ export default function Chart({dataset}) {
   return(
      <>
      <div>
-        <BarChart data={data} options={options} width="600" height="250" />
+        <BarChart data={data} options={options} width="800" height="800" />
       </div>
-      <div>
-          <h1>{dataset.type}</h1>
-
-          {dataset.dataset}
-      </div>
+      
      </>
      )
 }
