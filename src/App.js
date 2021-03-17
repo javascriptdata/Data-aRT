@@ -11,7 +11,7 @@ import DataTablePage from "./containers/DataTablePage";
 
 function App() {
   const data={
-    dataset: [1,2,3,4,5],
+    dataset: [1000,2000,3000,4000,5000,6000,7000],
     type:"Bar chart"
   }
   console.log(data)
