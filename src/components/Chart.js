@@ -7,7 +7,7 @@ import { Pie as PieChart} from "react-chartjs-2";
 export default function Chart({dataset,type}) {
   //let type= "BarChart";
   let data = {
-    labels: ["January", "February", "March", "April", "May", "June", "July"],
+    labels: dataset.labels,
     datasets: [{
       label: "My First dataset",
       backgroundColor: [
@@ -26,7 +26,7 @@ export default function Chart({dataset,type}) {
         'rgba(153, 102, 255, 1)',
         'rgba(255, 159, 64, 1)'
       ],
-      borderWidth: 1,
+      borderWidth:1,
       data: dataset.dataset,
     }]
   };
@@ -43,14 +43,14 @@ export default function Chart({dataset,type}) {
   if(type==="BarChart"){
     return(
       <div>
-         <BarChart data={data} options={options} width="800" height="800" />
+         <BarChart data={data} options={options} width="1000" height="2000" />
       </div>
     )
   }
   else if(type==="LineChart"){
     return(
       <div>
-        <LineChart data={data} options={options} width="800" height="800" />
+        <LineChart data={data} options={options} width="1000" height="2000" />
        
       </div>
     )
@@ -59,7 +59,7 @@ export default function Chart({dataset,type}) {
   else if(type==="PieChart"){
     return(
       <div>
-         <PieChart data={data} options={options} width="800" height="800" />
+         <PieChart data={data} options={options} width="1000" height="2000" />
        
       </div>
     )

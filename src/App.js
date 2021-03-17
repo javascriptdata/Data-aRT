@@ -13,7 +13,7 @@ function App() {
   const [type,SetType]=useState("");
   const data={
     dataset: [1000,2000,3000,4000,5000,6000,7000],
-    type:"Bar chart"
+    labels: ["January", "February", "March", "April", "May", "June", "July"],
   }
   console.log(data)
   return (
