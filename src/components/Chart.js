@@ -1,8 +1,12 @@
-import React from "react";
+import React, {useState} from "react";
 import { Bar as BarChart } from 'react-chartjs-2';
-//import { Line } from "react-chartjs-2";
+import { Line as LineChart } from "react-chartjs-2";
+import { Pie as PieChart} from "react-chartjs-2";
+
 
 export default function Chart({dataset}) {
+  //let type= "BarChart";
+  const [type,SetType]=useState("");
   let data = {
     labels: ["January", "February", "March", "April", "May", "June", "July"],
     datasets: [{
@@ -36,11 +40,81 @@ export default function Chart({dataset}) {
         stacked: true
       }]
     }
-  };
+  }
+  if(type==="BarChart"){
+    return(
+      <div>
+         <BarChart data={data} options={options} width="800" height="800" />
+         <button onClick={() => {
+         SetType("BarChart");
+        }}>Barchart</button>
+         {" "}
+         <button onClick={() => {
+         SetType("LineChart");
+        }}>Linechart</button>
+         {" "}
+         <button onClick={() => {
+         SetType("PieChart");
+        }}
+         >Piechart</button>
+      </div>
+    )
+  }
+  else if(type==="LineChart"){
+    return(
+      <div>
+        <LineChart data={data} options={options} width="800" height="800" />
+        <button onClick={() => {
+         SetType("BarChart");
+        }}>Barchart</button>
+         {" "}
+         <button onClick={() => {
+         SetType("LineChart");
+        }}>Linechart</button>
+         {" "}
+         <button onClick={() => {
+         SetType("PieChart");
+        }}
+         >Piechart</button>
+      </div>
+    )
+  }
+  
+  else if(type==="PieChart"){
+    return(
+      <div>
+         <PieChart data={data} options={options} width="800" height="800" />
+        <button onClick={() => {
+         SetType("BarChart");
+        }}>Barchart</button>
+         {" "}
+         <button onClick={() => {
+         SetType("LineChart");
+        }}>Linechart</button>
+         {" "}
+         <button onClick={() => {
+         SetType("PieChart");
+        }}
+         >Piechart</button>
+      </div>
+    )
+  }
   return(
      <>
      <div>
-        <BarChart data={data} options={options} width="800" height="800" />
+        <h1>NO Chart </h1>
+        <button onClick={() => {
+         SetType("BarChart");
+        }}>Barchart</button>
+        {" "}
+         <button onClick={() => {
+         SetType("LineChart");
+        }}>Linechart</button>
+         {" "}
+         <button onClick={() => {
+         SetType("PieChart");
+        }}
+         >Piechart</button>
       </div>
       
      </>
