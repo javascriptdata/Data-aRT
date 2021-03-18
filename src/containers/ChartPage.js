@@ -3,6 +3,7 @@ import Chart from "../components/Chart";
 import SidePlane from "../components/SidePlane";
 
 function ChartPage(props) {
+    if(props.display==="Chart"){
     return (
         <>
             <div  className="grid grid-cols-2 gap-10 px-5 py-20 sm:grid-cols-2 sm:gap-1 xl:px-40">
@@ -11,6 +12,11 @@ function ChartPage(props) {
             </div>
         </>
     )
+}
+   
+        return(
+            <div></div>
+        )
 }
 
 export default ChartPage
