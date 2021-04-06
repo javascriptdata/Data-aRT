@@ -2,6 +2,7 @@ import React from 'react'
 import DataTable from "../components/DataTable";
 import SidePlane from "../components/SidePlane";
 
+
 function DataTablePage(props) {
     if(props.display==="Table"){
     return (

@@ -4,7 +4,6 @@ import Draggable from 'react-draggable';
 import 'react-table-v6/react-table.css'
 
 function DataTable({ datain }) {
-
   const header = datain[0].split(",");
   const columns = header.map((val, index) => {
     return { Header: val, 
