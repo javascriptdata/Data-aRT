@@ -10,6 +10,7 @@ function ChartPage(props) {
                 <Chart dataset={props.data} type={props.type}/>
                 <SidePlane SetType={props.SetType}/>
             </div>
+            
         </>
     )
 }
