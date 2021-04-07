@@ -3,7 +3,7 @@ import DataTable from './components/DataTable';
 import NavBar from './components/DataTable';
 function App2() {
   const [file, setFile ] = useState()
-  const[display,Setdisplay]=useState("Chart");
+
   const changeHandler = function(event) {
       const content = event.target.files[0]
       const reader = new FileReader();
