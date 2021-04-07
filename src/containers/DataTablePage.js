@@ -12,7 +12,7 @@ function DataTablePage(props) {
                 { props.file && <DataTable datain={props.file} /> }           
             </div>
        
-    )
+    )}
 
     return <div></div>
 }
