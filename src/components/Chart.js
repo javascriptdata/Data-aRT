@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import { Bar as BarChart } from 'react-chartjs-2';
 import { Line as LineChart } from "react-chartjs-2";
 import { Pie as PieChart} from "react-chartjs-2";
-
+import Draggable from 'react-draggable';
 
 export default function Chart({dataset,type}) {
   //let type= "BarChart";
@@ -42,26 +42,31 @@ export default function Chart({dataset,type}) {
   }
   if(type==="BarChart"){
     return(
-      <div>
-         <BarChart data={data} options={options} width="1000" height="2000" />
-      </div>
+      <Draggable>
+        <div>
+          <BarChart data={data} options={options} width="1000" height="2000" />
+        </div>
+      </Draggable>
     )
   }
   else if(type==="LineChart"){
     return(
+      <Draggable>
       <div>
         <LineChart data={data} options={options} width="1000" height="2000" />
        
       </div>
+      </Draggable>
     )
   }
   
   else if(type==="PieChart"){
     return(
+      <Draggable>
       <div>
-         <PieChart data={data} options={options} width="1000" height="2000" />
-       
+         <PieChart data={data} options={options} width="1000" height="2000" /> 
       </div>
+      </Draggable>
     )
   }
   return(
