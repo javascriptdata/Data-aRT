@@ -3,10 +3,9 @@ import ReactTable from 'react-table-v6'
 import Draggable from 'react-draggable';
 import 'react-table-v6/react-table.css'
 
-function DataTable({ datain }) {
+function DataTable({ columns, values, setCompIndex, index, setSidePlane }) {
 
-  const header = datain[0].split(",");
-  const columns = header.map((val, index) => {
+  const dataColumns = columns.map((val, index) => {
     return { Header: val, 
       accessor: val,
       Cell: (props) => (
@@ -15,29 +14,32 @@ function DataTable({ datain }) {
         </div>
       ),
       width:
-        index === 0 && (1280 * 0.8333 - 30) / header.length < 130
+        index === 0 && (1280 * 0.8333 - 30) / columns.length < 130
           ? 130
           : undefined,
     }
   });
 
-  const data = datain.slice(1,10).map(val =>{
+  const data = values.map(val =>{
     let rows_data = {}
-    let row_data = val.split(",");
     
-    row_data.forEach((val2, index) => {
-      let col = header[index];
+    val.forEach((val2, index) => {
+      let col = columns[index];
       rows_data[col] = val2;
     })
     return rows_data;
   })
   
+  const handleSidePlane = ()=>{
+    setCompIndex(index)
+    setSidePlane(true)
+  }
   return (
     <Draggable >
-        <div className="w-1/2">
+        <div className="w-1/2" onClick={()=> handleSidePlane()}>
         <ReactTable
           data={data}
-          columns={columns}
+          columns={dataColumns}
           getTheadThProps={() => {
             return { style: { wordWrap: 'break-word', whiteSpace: 'initial' } }
           }}
