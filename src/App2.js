@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import DataTables from './components/DataTables';
-import { Arithemtic } from './components/SidePlanes'
+import { Df2df } from './components/SidePlanes'
 import { read_csv } from 'danfojs/src/io/reader'
 
 function App2() {
@@ -19,10 +19,12 @@ function App2() {
           const values = df.values
           setDataComp(prev => {
             let new_data = prev.slice()
+            let key = new_data.length +1
             let dict = {
               columns: columns,
               values: values,
-              df: df
+              df: df,
+              keys: "df" + key
             }
             new_data.push(dict)
             return new_data
@@ -54,7 +56,12 @@ function App2() {
           </div>
           {showSidePlane && 
             <div className="border-2 w-1/3">
-              <Arithemtic dataComp={dataComp[compIndex]} setDataComp={setDataComp}/>
+              <Df2df 
+                dataComp={dataComp[compIndex]} 
+                dataComps={dataComp}
+                df_index={compIndex}
+                setDataComp={setDataComp}
+               />
             </div>
             
           }
