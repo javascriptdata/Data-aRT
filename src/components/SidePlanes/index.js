@@ -1,6 +1,3 @@
-import Describe from './Describe'
-import Query from './Query'
-import Arithemtic from './Arithemtic'
-import Df2df from './Df2df'
+import SidePlane from './SidePlane'
 
-export { Describe, Query, Arithemtic, Df2df }
+export { SidePlane }
