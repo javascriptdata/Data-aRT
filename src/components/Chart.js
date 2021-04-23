@@ -4,7 +4,6 @@ import { Line as LineChart } from "react-chartjs-2";
 import { Pie as PieChart} from "react-chartjs-2";
 import Draggable from 'react-draggable';
 
-
 export default function Chart({labels, dataset,type}) {
   //let type= "BarChart";
   let data = {
