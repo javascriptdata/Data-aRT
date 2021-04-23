@@ -32,7 +32,7 @@ function DataTable({ columns, values, setCompIndex, index, setSidePlane }) {
   
   const handleSidePlane = ()=>{
     setCompIndex(index)
-    setSidePlane(true)
+    // setSidePlane(true)
   }
   return (
     <Draggable >
