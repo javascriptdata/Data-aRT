@@ -11,6 +11,7 @@
     "autoprefixer": "^9",
     "chart.js": "^2.9.4",
     "danfojs": "^0.2.2",
+    "danfojs-node": "^0.2.6",
     "postcss": "^7",
     "react": "^17.0.1",
     "react-chartjs-2": "^2.11.1",
