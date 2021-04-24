@@ -104,6 +104,7 @@ function App() {
               { (chartComp.length > 0) && 
                 <ChartsViz
                     chartComp={chartComp}
+                    setChartComp={setChartComp}
                 /> 
               }
             </div>
