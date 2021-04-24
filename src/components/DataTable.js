@@ -3,7 +3,7 @@ import ReactTable from 'react-table-v6'
 import Draggable from 'react-draggable';
 import 'react-table-v6/react-table.css'
 
-function DataTable({ columns, values, setCompIndex, index, setSidePlane }) {
+function DataTable({ columns, values, setCompIndex, index, setSidePlane,remover,keys }) {
 
   const dataColumns = columns.map((val, index) => {
     return { Header: val, 
@@ -37,6 +37,7 @@ function DataTable({ columns, values, setCompIndex, index, setSidePlane }) {
   return (
     <Draggable >
         <div className="w-1/2" onClick={()=> handleSidePlane()}>
+        <button onClick={()=> remover(keys)} className="bg-red-700 text-white rounded-sm p-2">Delete</button>
         <ReactTable
           data={data}
           columns={dataColumns}

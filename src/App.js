@@ -17,8 +17,8 @@ function App() {
   const changeHandler = function(event) {
       const content = event.target.files[0]
       const url = URL.createObjectURL(content)
-
-      read_csv(url, {start: 0, end: 20}).then(df => {
+      
+      read_csv("https://raw.githubusercontent.com/plotly/datasets/master/finance-charts-apple.csv", {start: 0, end: 20}).then(df => {
           const columns = df.columns
           const values = df.values
           setDataComp(prev => {
@@ -36,7 +36,9 @@ function App() {
         setFile(true);
 
 
-      })
+      }).catch((error) => {
+            console.log(error)
+          })
   }
 
   const charts = ["BarChart", "LineChart", "PieChart"]
@@ -95,6 +97,7 @@ function App() {
                     datacomp={dataComp} 
                     setSidePlane={setSidePlane}
                     setCompIndex={setCompIndex}
+                    setDataComp={setDataComp}
                 /> 
               }
               
