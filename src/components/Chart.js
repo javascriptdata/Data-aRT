@@ -4,8 +4,9 @@ import { Line as LineChart } from "react-chartjs-2";
 import { Pie as PieChart} from "react-chartjs-2";
 import Draggable from 'react-draggable';
 
-export default function Chart({labels, dataset,type,key,remover}) {
+export default function Chart({labels, dataset,type,del,remover}) {
   //let type= "BarChart";
+  console.log(del)
   let data = {
     labels: labels,
     datasets: [{
@@ -44,7 +45,7 @@ export default function Chart({labels, dataset,type,key,remover}) {
     return(
       <Draggable>
         <div className="max-w-md">
-        <button onClick={()=> remover(key)} className="bg-red-700 text-white rounded-sm p-2">Delete</button>
+        <button onClick={()=> remover(del)} className="bg-red-700 text-white rounded-sm p-2">Delete</button>
          <BarChart data={data} options={options} width="100" height="100" />
       </div>
       </Draggable>
@@ -55,7 +56,7 @@ export default function Chart({labels, dataset,type,key,remover}) {
     return(
       <Draggable>
         <div className="max-w-md">
-        <button onClick={()=> remover(key)} className="bg-red-700 text-white rounded-sm p-2">Delete</button>
+        <button onClick={()=> remover(del)} className="bg-red-700 text-white rounded-sm p-2">Delete</button>
         <LineChart data={data} options={options} width="100" height="100"/>
        
       </div>
@@ -68,7 +69,7 @@ export default function Chart({labels, dataset,type,key,remover}) {
     return(
       <Draggable>
         <div className="max-w-md">
-        <button onClick={()=> remover(key)} className="bg-red-700 text-white rounded-sm p-2">Delete</button>
+        <button onClick={()=> remover(del)} className="bg-red-700 text-white rounded-sm p-2">Delete</button>
           <PieChart data={data} options={options} width="100" height="100" />
        
         </div>

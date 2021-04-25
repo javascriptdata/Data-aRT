@@ -9,14 +9,16 @@ export default function ChartsViz({chartComp,setChartComp}) {
     <div>
       {
         chartComp.map((chart)=> {
+          console.log(chart.key)
           return(
             <>
-         {/* <button onClick={()=> remover(chart.key)} className="bg-red-700 text-white rounded-sm p-2">Delete</button> */}
+
+         {/* <button onClick={()=> remover(chart.key)} className="bg-red-700 text-white rounded-sm p-2">Delete</button>  */}
             <Chart 
               labels={chart.labels}
               dataset={chart.data}
               type={chart.type}
-              key={chart.key}
+              del={chart.key}
               remover={remover}
           />
           </>
