@@ -17,7 +17,8 @@ function App() {
   const changeHandler = function(event) {
       const content = event.target.files[0]
       const url = URL.createObjectURL(content)
-
+      
+      //"http://localhost:3000/exs.csv"
       read_csv(url, {start: 0, end: 20}).then(df => {
           const columns = df.columns
           const values = df.values
@@ -36,7 +37,9 @@ function App() {
         setFile(true);
 
 
-      })
+      }).catch((error) => {
+            console.log(error)
+          })
   }
 
   const charts = ["BarChart", "LineChart", "PieChart"]
@@ -56,7 +59,7 @@ function App() {
     setSidePlane("datatable")
     
   }
-
+  let classes=file?"bg-blue-500 p-2 text-white rounded-sm mr-2":"bg-gray-200 p-2 text-white rounded-sm mr-2"
   return (
     <div className="max-w-full mx-auto border-2 mt-10">
       <div className="flex flex-col">
@@ -64,9 +67,10 @@ function App() {
           <input type="file" name="file" onChange={changeHandler} />
           <div className="mr-4">
             {
+              
               charts.map((chart, i)=>{
-                return <button 
-                          className="bg-blue-500 p-2 text-white rounded-sm mr-2"
+                return <button disabled={file?false:true}
+                          className={classes}
                           onClick={handleChart}
                       >
                         {chart}
@@ -95,12 +99,14 @@ function App() {
                     datacomp={dataComp} 
                     setSidePlane={setSidePlane}
                     setCompIndex={setCompIndex}
+                    setDataComp={setDataComp}
                 /> 
               }
               
               { (chartComp.length > 0) && 
                 <ChartsViz
                     chartComp={chartComp}
+                    setChartComp={setChartComp}
                 /> 
               }
             </div>
