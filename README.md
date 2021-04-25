@@ -8,4 +8,4 @@ This a work in progres and lack some styling. The major part of `Data-aRT` is fu
 
 ![](exxample.png)
 
-![](Capture.png)
+![](Capture.PNG)
