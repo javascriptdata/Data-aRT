@@ -18,7 +18,8 @@ function App() {
       const content = event.target.files[0]
       const url = URL.createObjectURL(content)
       
-      read_csv("https://raw.githubusercontent.com/plotly/datasets/master/finance-charts-apple.csv", {start: 0, end: 20}).then(df => {
+      // read_csv("https://raw.githubusercontent.com/plotly/datasets/master/finance-charts-apple.csv", {start: 0, end: 20}).then(df => {
+      read_csv("http://localhost:3000/exs.csv", {start: 0, end: 20}).then(df => {
           const columns = df.columns
           const values = df.values
           setDataComp(prev => {
