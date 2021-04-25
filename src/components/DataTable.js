@@ -37,7 +37,7 @@ function DataTable({ columns, values, setCompIndex, index, setSidePlane,remover,
   return (
     <Draggable >
         <div className="w-1/2" onClick={()=> handleSidePlane()}>
-        <button onClick={()=> remover(keys)} className="bg-red-700 text-white rounded-sm p-2">Delete</button>
+        <button onClick={()=> remover(keys)} className="bg-red-700 text-white rounded-sm p-2">X</button>
         <ReactTable
           data={data}
           columns={dataColumns}

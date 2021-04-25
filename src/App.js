@@ -18,8 +18,8 @@ function App() {
       const content = event.target.files[0]
       const url = URL.createObjectURL(content)
       
-      // read_csv("https://raw.githubusercontent.com/plotly/datasets/master/finance-charts-apple.csv", {start: 0, end: 20}).then(df => {
-      read_csv("http://localhost:3000/exs.csv", {start: 0, end: 20}).then(df => {
+      //"http://localhost:3000/exs.csv"
+      read_csv(url, {start: 0, end: 20}).then(df => {
           const columns = df.columns
           const values = df.values
           setDataComp(prev => {
@@ -59,7 +59,7 @@ function App() {
     setSidePlane("datatable")
     
   }
-
+  let classes=file?"bg-blue-500 p-2 text-white rounded-sm mr-2":"bg-gray-200 p-2 text-white rounded-sm mr-2"
   return (
     <div className="max-w-full mx-auto border-2 mt-10">
       <div className="flex flex-col">
@@ -67,9 +67,10 @@ function App() {
           <input type="file" name="file" onChange={changeHandler} />
           <div className="mr-4">
             {
+              
               charts.map((chart, i)=>{
-                return <button 
-                          className="bg-blue-500 p-2 text-white rounded-sm mr-2"
+                return <button disabled={file?false:true}
+                          className={classes}
                           onClick={handleChart}
                       >
                         {chart}

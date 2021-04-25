@@ -45,7 +45,7 @@ export default function Chart({labels, dataset,type,del,remover}) {
     return(
       <Draggable>
         <div className="max-w-md">
-        <button onClick={()=> remover(del)} className="bg-red-700 text-white rounded-sm p-2">Delete</button>
+        <button onClick={()=> remover(del)} className="bg-red-700 text-white rounded-sm p-2">X</button>
          <BarChart data={data} options={options} width="100" height="100" />
       </div>
       </Draggable>
@@ -56,7 +56,7 @@ export default function Chart({labels, dataset,type,del,remover}) {
     return(
       <Draggable>
         <div className="max-w-md">
-        <button onClick={()=> remover(del)} className="bg-red-700 text-white rounded-sm p-2">Delete</button>
+        <button onClick={()=> remover(del)} className="bg-red-700 text-white rounded-sm p-2">X</button>
         <LineChart data={data} options={options} width="100" height="100"/>
        
       </div>
@@ -69,7 +69,7 @@ export default function Chart({labels, dataset,type,del,remover}) {
     return(
       <Draggable>
         <div className="max-w-md">
-        <button onClick={()=> remover(del)} className="bg-red-700 text-white rounded-sm p-2">Delete</button>
+        <button onClick={()=> remover(del)} className="bg-red-700 text-white rounded-sm p-2">X</button>
           <PieChart data={data} options={options} width="100" height="100" />
        
         </div>
