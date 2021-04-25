@@ -44,10 +44,10 @@ function DataTable({ columns, values, setCompIndex, index, setSidePlane,remover,
           getTheadThProps={() => {
             return { style: { wordWrap: 'break-word', whiteSpace: 'initial' } }
           }}
-          showPageJump={false}
-          showPagination={false}
+          showPageJump={true}
+          showPagination={true}
           defaultPageSize={10}
-          showPageSizeOptions={false}
+          showPageSizeOptions={true}
           minRows={10}
         />
     </div>
