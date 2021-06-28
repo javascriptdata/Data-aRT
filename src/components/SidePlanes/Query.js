@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
 
-export default function Query({ dataComp, setDataComp}) {
+export default function Query({ dataComp, setDataComp }) {
 
   const columnRef = useRef()
   const logicRef = useRef()
@@ -9,13 +9,13 @@ export default function Query({ dataComp, setDataComp}) {
   const columns = dataComp.columns
   const logics = [">", "<", "<=", ">=", "==", "!="]
 
-  const query = ()=>{
+  const query = () => {
 
     const qColumn = columnRef.current.value
     const qLogic = logicRef.current.value
     const qValue = valuesRef.current.value
 
-    const  df = dataComp.df.query({column: qColumn, is: qLogic, to: qValue})
+    const df = dataComp.df.query({ column: qColumn, is: qLogic, to: qValue })
 
     setDataComp(prev => {
       let new_data = prev.slice()
@@ -34,9 +34,9 @@ export default function Query({ dataComp, setDataComp}) {
       <form>
         <div>
           <span className="mr-2">Column</span>
-           <select ref={columnRef} className="border">
+          <select ref={columnRef} className="border">
             {
-              columns.map((column, index)=> {
+              columns.map((column, index) => {
                 return <option value={column}>{column}</option>
               })
             }
@@ -44,9 +44,9 @@ export default function Query({ dataComp, setDataComp}) {
         </div>
         <div>
           <span className="mr-2">is</span>
-           <select ref={logicRef} className="border">
+          <select ref={logicRef} className="border">
             {
-              logics.map((logic, index)=> {
+              logics.map((logic, index) => {
                 return <option value={logic}>{logic}</option>
               })
             }
@@ -54,10 +54,10 @@ export default function Query({ dataComp, setDataComp}) {
         </div>
         <div>
           <span className="mr-2">to</span>
-           <input ref={valuesRef} placeholder="value" className="border"/>
+          <input ref={valuesRef} placeholder="value" className="border" />
         </div>
       </form>
-      <button onClick={()=>query()} className="btn btn-default dq-btn-add">Query</button>
+      <button onClick={() => query()} className="bg-blue-700 text-white rounded-sm p-2">Query</button>
     </div>
   )
 }

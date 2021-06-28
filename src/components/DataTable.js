@@ -3,10 +3,11 @@ import ReactTable from 'react-table-v6'
 import Draggable from 'react-draggable';
 import 'react-table-v6/react-table.css'
 
-function DataTable({ columns, values, setCompIndex, index, setSidePlane,remover,keys }) {
+function DataTable({ columns, values, setCompIndex, index, setSidePlane, remover, keys }) {
 
   const dataColumns = columns.map((val, index) => {
-    return { Header: val, 
+    return {
+      Header: val,
       accessor: val,
       Cell: (props) => (
         <div className={val || ''}>
@@ -20,24 +21,24 @@ function DataTable({ columns, values, setCompIndex, index, setSidePlane,remover,
     }
   });
 
-  const data = values.map(val =>{
+  const data = values.map(val => {
     let rows_data = {}
-    
+
     val.forEach((val2, index) => {
       let col = columns[index];
       rows_data[col] = val2;
     })
     return rows_data;
   })
-  
-  const handleSidePlane = ()=>{
+
+  const handleSidePlane = () => {
     setCompIndex(index)
     // setSidePlane(true)
   }
   return (
     <Draggable >
-        <div className="w-1/2" onClick={()=> handleSidePlane()}>
-        <button onClick={()=> remover(keys)} className="bg-red-700 text-white rounded-sm p-2">X</button>
+      <div className="w-1/2" onClick={() => handleSidePlane()}>
+        {/* <button onClick={()=> remover(keys)} className="bg-red-700 text-white rounded-sm p-2">X</button> */}
         <ReactTable
           data={data}
           columns={dataColumns}
@@ -50,11 +51,11 @@ function DataTable({ columns, values, setCompIndex, index, setSidePlane,remover,
           showPageSizeOptions={true}
           minRows={10}
         />
-    </div>
+      </div>
     </Draggable>
   )
-    
-    
+
+
 }
 
 export default DataTable

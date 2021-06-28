@@ -1,58 +1,43 @@
 import React, { useRef } from 'react'
 
-export default function ChartPlane({setChartComp, dataComp, chartType}) {
+export default function ChartPlane({ setChartComp, dataComp, chartType }) {
 
   const df = dataComp.df
 
   const compCols = dataComp.columns
   let x;
   let y;
-  if( compCols[0] === "index") {
+  if (compCols[0] === "index") {
     x = compCols
     console.log(dataComp.values[0])
     //sanity check
-    y = dataComp.values[0].map((val, index)=> {
-        if(typeof val != "string") {
-          return compCols[index]
-        }
+    y = dataComp.values[0].map((val, index) => {
+      if (typeof val != "string") {
+        return compCols[index]
+      }
     })
   } else {
     x = df.columns
     const dtypes = df.dtypes
-    y = dtypes.map((val, i)=>{
-        if(val != "string") {
-          return x[i]
-        }
+    y = dtypes.map((val, i) => {
+      if (val != "string") {
+        return x[i]
+      }
     })
   }
-  
+
 
   const xRef = useRef()
   const yRef = useRef()
 
-  const handleChart = () =>{
+  const handleChart = () => {
     const xVal = xRef.current.value
     const yVal = yRef.current.value
 
-    let labels
-    let data
-    if( compCols[0] != "index") {
-      labels = df[xVal].values
-      data = df[yVal].values
-    }
-    else {
-      const xIndex = compCols.indexOf(xVal)
-      const yIndex = compCols.indexOf(yVal)
+    const labels = xVal === "index" ? df.index : df[xVal].values
+    const data = yVal === "index" ? df.index : df[yVal].values
 
-      labels = dataComp.values.map((val)=>{
-        return val[xIndex]
-      })
-      data = dataComp.values.map((val)=>{
-        return val[yIndex]
-      })
-    }
-    
-    setChartComp((prev)=>{
+    setChartComp((prev) => {
       const newChart = prev.slice()
       const key = newChart.length + 1
       const dict = {
@@ -73,7 +58,7 @@ export default function ChartPlane({setChartComp, dataComp, chartType}) {
           <span className="mr-2">x: </span>
           <select ref={xRef} className="border">
             {
-              x.map((val, index)=> {
+              x.map((val, index) => {
                 return <option value={val} key={index} >{val}</option>
               })
             }
@@ -90,7 +75,7 @@ export default function ChartPlane({setChartComp, dataComp, chartType}) {
           </select>
         </div>
       </form>
-      <button onClick={()=>handleChart()} className="bg-blue-500 p-2 text-white rounded-sm">generate Chart</button>
+      <button onClick={() => handleChart()} className="bg-blue-500 p-2 text-white rounded-sm">generate Chart</button>
     </div>
   )
 }
